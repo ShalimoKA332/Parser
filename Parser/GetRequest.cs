@@ -8,15 +8,15 @@ namespace Parser
 {
     class GetRequest
     {
-        string ulr = @"https://www.simbirsoft.com/";
+     
 
-        public void Requiest()
+        public void Requiest( string url)
         {
             HtmlWeb web = new HtmlWeb();
-            var htmlDoc = web.Load(ulr);
+            var htmlDoc = web.Load(url);
             List<Fields> vs = new List<Fields>();
             string ts = htmlDoc.DocumentNode.InnerText;
-            string[] words = ts.Split(' ', ',', '.', '?', '"', ';', ':', '[',']', '(', ')', '\n', '\r', '\t');
+            string[] words = ts.Split(' ', ',', '.', '?', '"', ';', ':', '[', ']', '(', ')', '\n', '\r', '\t');
             foreach (string s in words)
             {
 
@@ -33,7 +33,7 @@ namespace Parser
             }
             foreach (var i in vs)
             {
-                Console.WriteLine(i.word +" "+ i.countword);
+                Console.WriteLine(i.word + " " + i.countword);
             }
 
         }
